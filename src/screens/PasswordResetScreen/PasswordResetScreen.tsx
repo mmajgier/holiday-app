@@ -2,9 +2,9 @@ import { Formik } from "formik";
 import { Button, Input, ScrollView, Text, View } from "native-base";
 import React from "react";
 import LockerGirl from "../../assets/SVG/LockerGirl";
-import { LoginScreenProps } from "./types";
+import { UnauthenticatedScreenProps } from "../LoginScreen/types";
 
-const LoginScreen = ({ navigation }: LoginScreenProps) => {
+const PasswordResetScreen = ({ navigation }: UnauthenticatedScreenProps) => {
   return (
     <ScrollView>
       <View
@@ -63,7 +63,7 @@ const LoginScreen = ({ navigation }: LoginScreenProps) => {
                   fontFamily={"mono"}
                   marginTop={"5px"}
                   onPress={() => {
-                    navigation.navigate("PasswordResetScreen");
+                    navigation.navigate("ForgotPasswordScreen");
                   }}
                 >
                   Forgot password?
@@ -86,17 +86,6 @@ const LoginScreen = ({ navigation }: LoginScreenProps) => {
                   Login
                 </Text>
               </Button>
-              <Text marginTop={"20px"}>
-                Don't have an account?{" "}
-                <Text
-                  onPress={() => {
-                    navigation.navigate("SignUpScreen");
-                  }}
-                  fontFamily={"mono"}
-                >
-                  Sign-up
-                </Text>
-              </Text>
             </View>
           )}
         </Formik>
@@ -105,4 +94,4 @@ const LoginScreen = ({ navigation }: LoginScreenProps) => {
   );
 };
 
-export default LoginScreen;
+export default PasswordResetScreen;
