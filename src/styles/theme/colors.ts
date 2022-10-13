@@ -3,4 +3,5 @@ export const colors = {
   black: "#000000",
   nileBlue: "#183B50",
   seaShell: "#F1F1F1",
+  gray: "#929292",
 };

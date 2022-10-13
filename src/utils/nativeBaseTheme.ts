@@ -28,6 +28,9 @@ const nativeBaseTheme = extendTheme({
     seaShell: {
       100: colors.seaShell,
     },
+    gray: {
+      100: colors.gray,
+    },
   },
   components: {
     Button: {

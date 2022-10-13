@@ -1,8 +1,10 @@
-import { Button, Text, View } from "native-base";
+import { Formik } from "formik";
+import { Button, Input, Text, View } from "native-base";
 import React from "react";
 import LockerGirl from "../../assets/SVG/LockerGirl";
+import { UnauthenticatedScreenProps } from "../ScreenTypes";
 
-const LoginScreen = ({ navigation }) => {
+const LoginScreen = ({ navigation }: UnauthenticatedScreenProps) => {
   return (
     <>
       <View
@@ -24,24 +26,58 @@ const LoginScreen = ({ navigation }) => {
         >
           Log-in
         </Text>
-        <Button
-          onPress={() => {
-            navigation.navigate("SignUpScreen");
-          }}
-          bgColor={"nileBlue.100"}
-          position={"relative"}
-          marginTop={"1/2"}
+        <Formik
+          initialValues={{ email: "", password: "" }}
+          onSubmit={(values) => console.log(values)}
         >
-          <Text
-            fontFamily={"body"}
-            color={"white"}
-            fontSize={"20px"}
-            lineHeight={"24px"}
-            textAlign={"center"}
-          >
-            Login
-          </Text>
-        </Button>
+          {({ handleChange, handleBlur, handleSubmit, values }) => (
+            <View marginTop={"10"}>
+              <View marginLeft={"10"}>
+                <Text fontFamily={"mono"}>Email</Text>
+                <Input
+                  onChangeText={handleChange("email")}
+                  onBlur={handleBlur("email")}
+                  value={values.email}
+                  width={300}
+                  variant={"underlined"}
+                  borderBottomColor={"gray.100"}
+                  placeholder={"Your email id"}
+                  marginBottom={"8"}
+                  autoCapitalize={"none"}
+                />
+                <Text fontFamily={"mono"}>Password</Text>
+                <Input
+                  onChangeText={handleChange("password")}
+                  onBlur={handleBlur("password")}
+                  value={values.password}
+                  width={300}
+                  variant={"underlined"}
+                  placeholder={"Password"}
+                  borderBottomColor={"gray.100"}
+                  type={"password"}
+                  autoCapitalize={"none"}
+                />
+              </View>
+              <Button
+                onPress={() => {
+                  navigation.navigate("SignUpScreen");
+                }}
+                bgColor={"nileBlue.100"}
+                marginTop={50}
+              >
+                <Text
+                  fontFamily={"body"}
+                  color={"white"}
+                  fontSize={"20px"}
+                  lineHeight={"24px"}
+                  textAlign={"center"}
+                >
+                  Login
+                </Text>
+              </Button>
+            </View>
+          )}
+        </Formik>
       </View>
     </>
   );
