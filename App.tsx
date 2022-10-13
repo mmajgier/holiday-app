@@ -1,7 +1,14 @@
+import { NativeBaseProvider } from "native-base";
 import React from "react";
-import { NativeBaseProvider, Box } from "native-base";
-import { NavigationContainer } from "@react-navigation/native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import RootStack from "./src/navigation/stacks/RootStack/RootStack";
 
 export default function App() {
-  return <NavigationContainer>{}</NavigationContainer>;
+  return (
+    <SafeAreaProvider>
+      <NativeBaseProvider>
+        <RootStack />
+      </NativeBaseProvider>
+    </SafeAreaProvider>
+  );
 }
