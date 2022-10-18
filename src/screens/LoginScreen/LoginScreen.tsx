@@ -17,7 +17,12 @@ const LoginScreen = ({ navigation }: LoginScreenProps) => {
       >
         <LockerGirl />
       </View>
-      <View bgColor={"white"} height={"1/2"} borderRadius={"18"} marginTop={20}>
+      <View
+        bgColor={"white"}
+        height={"full"}
+        borderRadius={"18"}
+        marginTop={20}
+      >
         <Text
           marginTop={30}
           marginLeft={22}
@@ -32,7 +37,7 @@ const LoginScreen = ({ navigation }: LoginScreenProps) => {
         >
           {({ handleChange, handleBlur, handleSubmit, values }) => (
             <View marginTop={"10"} alignItems={"center"}>
-              <View width={"3/4"}>
+              <View width={"3/4"} flex={1}>
                 <Text fontFamily={"mono"}>Email</Text>
                 <Input
                   onChangeText={handleChange("email")}

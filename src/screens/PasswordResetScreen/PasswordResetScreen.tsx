@@ -17,14 +17,19 @@ const PasswordResetScreen = ({ navigation }: UnauthenticatedScreenProps) => {
       >
         <LockerGirl />
       </View>
-      <View bgColor={"white"} height={"1/2"} borderRadius={"18"} marginTop={20}>
+      <View
+        bgColor={"white"}
+        height={"full"}
+        borderRadius={"18"}
+        marginTop={20}
+      >
         <Text
           marginTop={30}
           marginLeft={22}
           fontSize={32}
           fontFamily={"heading"}
         >
-          Log-in
+          Forgot password
         </Text>
         <Formik
           initialValues={{ email: "", password: "" }}
@@ -45,29 +50,6 @@ const PasswordResetScreen = ({ navigation }: UnauthenticatedScreenProps) => {
                   marginBottom={"8"}
                   autoCapitalize={"none"}
                 />
-                <Text fontFamily={"mono"}>Password</Text>
-                <Input
-                  onChangeText={handleChange("password")}
-                  onBlur={handleBlur("password")}
-                  value={values.password}
-                  width={300}
-                  variant={"underlined"}
-                  placeholder={"Password"}
-                  borderBottomColor={"gray.100"}
-                  type={"password"}
-                  autoCapitalize={"none"}
-                />
-                <Text
-                  alignSelf={"flex-end"}
-                  color={"gray.100"}
-                  fontFamily={"mono"}
-                  marginTop={"5px"}
-                  onPress={() => {
-                    navigation.navigate("ForgotPasswordScreen");
-                  }}
-                >
-                  Forgot password?
-                </Text>
               </View>
               <Button
                 onPress={() => {
@@ -83,9 +65,20 @@ const PasswordResetScreen = ({ navigation }: UnauthenticatedScreenProps) => {
                   lineHeight={"24px"}
                   textAlign={"center"}
                 >
-                  Login
+                  Submit
                 </Text>
               </Button>
+              <Text
+                alignSelf={"center"}
+                color={"black"}
+                fontFamily={"mono"}
+                marginTop={"15px"}
+                onPress={() => {
+                  navigation.navigate("LoginScreen");
+                }}
+              >
+                Back to login
+              </Text>
             </View>
           )}
         </Formik>

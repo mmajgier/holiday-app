@@ -9,12 +9,11 @@ const Stack =
 
 const UnauthenticatedStack = () => {
   return (
-    <Stack.Navigator initialRouteName="LoginScreen">
-      <Stack.Screen
-        name="LoginScreen"
-        component={LoginScreen}
-        options={{ headerShown: false }}
-      />
+    <Stack.Navigator
+      initialRouteName="LoginScreen"
+      screenOptions={{ headerShown: false }}
+    >
+      <Stack.Screen name="LoginScreen" component={LoginScreen} />
       <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
       <Stack.Screen
         name="PasswordResetScreen"
